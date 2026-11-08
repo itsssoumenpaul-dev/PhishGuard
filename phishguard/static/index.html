@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PhishGuard · Website threat analysis</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header><div class="wrap"><h1>PhishGuard</h1><p>Check a link before you trust it: threat analysis, certificate validation, web-security assessment and community intelligence.</p></div></header>
+<main class="wrap">
+  <form id="f" class="card row" autocomplete="off">
+    <input id="url" type="text" placeholder="Paste a link, e.g. https://example.com/login" required maxlength="2048" aria-label="URL to analyse">
+    <button id="go" type="submit">Analyse</button>
+  </form>
+  <details class="card small"><summary>Authorised security test (site owners only)</summary>
+    <label><input type="checkbox" id="deep"> Also probe for exposed files (.git, .env, …)</label><br>
+    <label><input type="checkbox" id="auth"> I own this site or have written permission to test it</label>
+  </details>
+  <p id="status" class="muted" role="status"></p>
+  <section id="result" hidden>
+    <div class="card verdict" id="verdictBox">
+      <div class="score"><span id="score">0</span><small>/100 risk</small></div>
+      <div><h2 id="label"></h2><p id="sub" class="muted"></p><p id="notes"></p></div>
+      <div class="grade" id="gradeBox" hidden><span id="grade"></span><small>security<br>posture</small></div>
+    </div>
+    <div class="grid">
+      <div class="card"><h3>Why this verdict</h3><ul id="signals" class="sig"></ul>
+        <h3>Security posture findings <small class="muted">(configuration issues, not phishing indicators)</small></h3><ul id="posture" class="sig"></ul></div>
+      <div class="card"><h3>What to do</h3><ul id="recs"></ul>
+        <h3>Certificate</h3><dl id="cert"></dl>
+        <h3>Community intelligence</h3><p id="intel"></p>
+        <div class="row"><button id="repBad" class="danger">Report as malicious</button><button id="repGood" class="ghost">Mark as safe</button></div>
+        <p id="repMsg" class="muted"></p>
+      </div>
+    </div>
+    <div class="card"><h3>Security headers &amp; cookies</h3><table id="hdr"></table></div>
+  </section>
+</main>
+<footer class="wrap muted small">Automated static analysis — decision support, not proof. Pages are never executed.</footer>
+<script src="/static/app.js"></script>
+</body>
+</html>

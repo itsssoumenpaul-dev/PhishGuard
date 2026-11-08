@@ -1,0 +1,21 @@
+PHISHGUARD - QUICK START FOR WINDOWS
+
+1. Extract this ZIP file.
+2. Open the extracted "phishguard" folder.
+3. Double-click setup_windows.bat and wait for installation to finish.
+   You need an internet connection for the first-time package installation.
+4. Double-click start_windows.bat.
+5. Open your browser and visit: http://127.0.0.1:8080
+6. To stop the server, return to the black terminal window and press Ctrl+C.
+
+SAFE DEMO:
+- Run start_demo_windows.bat to launch the demo interface.
+- Demo mode shows a canned sample analysis. It does not scan the URL entered.
+
+IMPORTANT:
+- The live scanner makes outbound requests to public websites. Use it only for
+  defensive checking. Deep scans should only be used on sites you own or have
+  explicit permission to assess.
+- Do not expose the live scanning server directly to the public internet.
+- Automated results are indicators, not proof that a site is safe or unsafe.
+- See README.md and SECURITY.md for details.
